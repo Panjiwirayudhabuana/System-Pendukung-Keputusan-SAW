@@ -37,8 +37,8 @@ class AdminSeeder extends Seeder
             }
 
             // Kredensial default admin (ubah sesuai kebutuhan Anda)
-            $email = 'admin@spksaw.local';
-            $plainPassword = 'Admin#12345';
+            $email = 'admin@gmail.com';
+            $plainPassword = 'Admin12345';
 
             // Buat/ambil user admin (email unik)
             $user = User::firstOrCreate(

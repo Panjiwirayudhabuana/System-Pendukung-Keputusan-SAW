@@ -15,10 +15,6 @@ class Tes extends Model
         'nilai_bahasa_indonesia',
         'nilai_bahasa_inggris',
         'nilai_ipa',
-        'nilai_ips',
-        'nilai_fisika',
-        'nilai_biologi',
-        'nilai_ppkn',
 
         'skor_minat_bakat',
         'tinggi_badan',

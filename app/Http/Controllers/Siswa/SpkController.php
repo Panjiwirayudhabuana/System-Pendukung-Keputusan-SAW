@@ -77,10 +77,6 @@ class SpkController extends Controller
             'nilai_bahasa_indonesia' => 'required|numeric|min:0|max:100',
             'nilai_bahasa_inggris'   => 'required|numeric|min:0|max:100',
             'nilai_ipa'              => 'required|numeric|min:0|max:100',
-            'nilai_ips'              => 'required|numeric|min:0|max:100',
-            'nilai_fisika'           => 'required|numeric|min:0|max:100',
-            'nilai_biologi'          => 'required|numeric|min:0|max:100',
-            'nilai_ppkn'             => 'required|numeric|min:0|max:100',
 
             'bakat_q1'  => 'required|integer|min:1|max:4',
             'bakat_q2'  => 'required|integer|min:1|max:4',
@@ -113,10 +109,6 @@ class SpkController extends Controller
                 'nilai_bahasa_indonesia'   => $validated['nilai_bahasa_indonesia'],
                 'nilai_bahasa_inggris'     => $validated['nilai_bahasa_inggris'],
                 'nilai_ipa'                => $validated['nilai_ipa'],
-                'nilai_ips'                => $validated['nilai_ips'],
-                'nilai_fisika'             => $validated['nilai_fisika'],
-                'nilai_biologi'            => $validated['nilai_biologi'],
-                'nilai_ppkn'               => $validated['nilai_ppkn'],
 
                 'skor_minat_bakat'         => $skorMinatBakat,
                 'tinggi_badan'             => $validated['tinggi_badan'],
@@ -201,18 +193,14 @@ class SpkController extends Controller
     private function getNilaiDasarSiswa(Tes $tes): array
     {
         return [
-            'C1'  => round($tes->nilai_matematika / 100, 6),
-            'C2'  => round($tes->nilai_bahasa_indonesia / 100, 6),
-            'C3'  => round($tes->nilai_bahasa_inggris / 100, 6),
-            'C4'  => round($tes->nilai_ipa / 100, 6),
-            'C5'  => round($tes->nilai_ips / 100, 6),
-            'C6'  => round($tes->nilai_fisika / 100, 6),
-            'C7'  => round($tes->nilai_biologi / 100, 6),
-            'C8'  => round($tes->nilai_ppkn / 100, 6),
-            'C9'  => round($tes->skor_minat_bakat / 100, 6),
-            'C10' => $this->normalisasiTinggiBadan($tes->tinggi_badan),
-            'C11' => $this->normalisasiBeratBadan($tes->tinggi_badan, $tes->berat_badan),
-            'C12' => $tes->buta_warna ? 0.0 : 1.0,
+            'C1' => round($tes->nilai_matematika / 100, 6),
+            'C2' => round($tes->nilai_bahasa_indonesia / 100, 6),
+            'C3' => round($tes->nilai_bahasa_inggris / 100, 6),
+            'C4' => round($tes->nilai_ipa / 100, 6),
+            'C5' => round($tes->skor_minat_bakat / 100, 6),
+            'C6' => $this->normalisasiTinggiBadan($tes->tinggi_badan),
+            'C7' => $this->normalisasiBeratBadan($tes->tinggi_badan, $tes->berat_badan),
+            'C8' => $tes->buta_warna ? 0.0 : 1.0,
         ];
     }
 
@@ -257,33 +245,21 @@ class SpkController extends Controller
                 $nilaiUji = (float) $tes->nilai_ipa;
                 break;
             case 'C5':
-                $nilaiUji = (float) $tes->nilai_ips;
-                break;
-            case 'C6':
-                $nilaiUji = (float) $tes->nilai_fisika;
-                break;
-            case 'C7':
-                $nilaiUji = (float) $tes->nilai_biologi;
-                break;
-            case 'C8':
-                $nilaiUji = (float) $tes->nilai_ppkn;
-                break;
-            case 'C9':
                 $nilaiUji = (float) $tes->skor_minat_bakat;
                 break;
-            case 'C10':
+            case 'C6':
                 $nilaiUji = (float) $tes->tinggi_badan;
                 break;
-            case 'C11':
+            case 'C7':
                 $nilaiUji = (float) $tes->berat_badan;
                 break;
-            case 'C12':
+            case 'C8':
                 $nilaiUji = $tes->buta_warna ? 0 : 100;
                 break;
         }
 
         if ($jurusanKriteria->wajib_lolos) {
-            if ($kodeKriteria === 'C12' && $tes->buta_warna) {
+            if ($kodeKriteria === 'C8' && $tes->buta_warna) {
                 return true;
             }
 

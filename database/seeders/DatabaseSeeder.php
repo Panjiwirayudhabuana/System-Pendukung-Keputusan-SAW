@@ -24,7 +24,6 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             SoalMinatSeeder::class,
             JurusanSeeder::class,
-            GuruBKSeeder::class,
             KriteriaSeeder::class,
             JurusanKriteriaSeeder::class,
         ]);

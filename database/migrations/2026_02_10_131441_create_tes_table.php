@@ -17,10 +17,6 @@ return new class extends Migration
             $table->decimal('nilai_bahasa_indonesia', 5, 2);
             $table->decimal('nilai_bahasa_inggris', 5, 2);
             $table->decimal('nilai_ipa', 5, 2);
-            $table->decimal('nilai_ips', 5, 2);
-            $table->decimal('nilai_fisika', 5, 2);
-            $table->decimal('nilai_biologi', 5, 2);
-            $table->decimal('nilai_ppkn', 5, 2);
 
             $table->tinyInteger('skor_minat_bakat');
             $table->decimal('tinggi_badan', 6, 2);
