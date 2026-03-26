@@ -22,16 +22,6 @@ return new class extends Migration
             // Bobot tiap kriteria untuk jurusan tertentu
             // contoh: 0.1500, 0.1000, 0.2500, dst
             $table->decimal('bobot', 5, 4);
-
-            // Aturan tambahan per jurusan-kriteria
-            $table->decimal('nilai_min', 8, 2)->nullable();
-            $table->decimal('nilai_max', 8, 2)->nullable();
-
-            // Dipakai jika suatu kriteria wajib dipenuhi
-            $table->boolean('wajib_lolos')->default(false);
-
-            $table->text('keterangan')->nullable();
-
             $table->timestamps();
 
             // Satu jurusan hanya boleh punya satu bobot untuk satu kriteria

@@ -12,10 +12,6 @@ class JurusanKriteria extends Model
         'jurusan_id',
         'kriteria_id',
         'bobot',
-        'nilai_min',
-        'nilai_max',
-        'wajib_lolos',
-        'keterangan',
     ];
 
     public function jurusan()

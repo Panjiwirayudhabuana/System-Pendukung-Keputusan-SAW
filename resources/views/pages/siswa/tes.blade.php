@@ -40,10 +40,10 @@
     .step-item-nav.active::after { background:linear-gradient(90deg,var(--green),var(--border)); }
     .step-circle { width:34px; height:34px; border-radius:50%; border:2px solid var(--border); background:var(--surface); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; color:var(--text-dim); position:relative; z-index:1; transition:all .3s cubic-bezier(.4,0,.2,1); box-shadow:0 2px 8px rgba(0,0,0,.3); }
     .step-item-nav.active .step-circle { border-color:var(--accent); background:var(--accent); color:#111; box-shadow:0 0 0 4px rgba(244,185,66,.2),0 2px 8px rgba(0,0,0,.3); transform:scale(1.1); }
-    .step-item-nav.done   .step-circle { border-color:var(--green); background:var(--green); color:white; box-shadow:0 0 0 4px rgba(92,184,92,.15),0 2px 8px rgba(0,0,0,.3); }
+    .step-item-nav.done .step-circle { border-color:var(--green); background:var(--green); color:white; box-shadow:0 0 0 4px rgba(92,184,92,.15),0 2px 8px rgba(0,0,0,.3); }
     .step-label { font-size:10px; font-weight:600; color:var(--text-dim); text-align:center; line-height:1.3; max-width:64px; transition:color .3s; }
     .step-item-nav.active .step-label { color:var(--accent); }
-    .step-item-nav.done   .step-label { color:var(--green); }
+    .step-item-nav.done .step-label { color:var(--green); }
 
     .step-panel { display:none; }
     .step-panel.active { display:block; animation:slideIn .35s ease both; }
@@ -81,14 +81,8 @@
 
     .toggle-group { display:flex; gap:10px; }
     .toggle-btn { flex:1; padding:11px 14px; border:1.5px solid var(--border); border-radius:10px; font-size:12px; font-weight:600; cursor:pointer; text-align:center; transition:all .2s; background:var(--surface2); color:var(--text-dim); font-family:'DM Sans',sans-serif; user-select:none; }
-    .toggle-btn.sel-ya    { border-color:var(--danger); background:rgba(224,84,84,.1); color:#f08080; }
-    .toggle-btn.sel-tidak { border-color:var(--green);  background:rgba(92,184,92,.1); color:#7dcc7d; }
-
-    .radio-card-group { display:flex; gap:10px; flex-wrap:wrap; }
-    .radio-card { flex:1; min-width:130px; border:1.5px solid var(--border); border-radius:10px; padding:12px 16px; cursor:pointer; transition:all .2s; display:flex; align-items:center; gap:10px; background:var(--surface2); user-select:none; }
-    .radio-card input[type="radio"] { accent-color:var(--accent); width:15px; height:15px; flex-shrink:0; }
-    .radio-card.selected { border-color:var(--accent); background:rgba(244,185,66,.08); box-shadow:0 0 0 3px rgba(244,185,66,.1); }
-    .radio-card-label { font-size:13px; font-weight:600; color:var(--text); }
+    .toggle-btn.sel-ya { border-color:var(--danger); background:rgba(224,84,84,.1); color:#f08080; }
+    .toggle-btn.sel-tidak { border-color:var(--green); background:rgba(92,184,92,.1); color:#7dcc7d; }
 
     #bmiCard { display:none; background:linear-gradient(135deg,#161d2a,#1a2135); border:1.5px solid var(--border); border-radius:10px; padding:16px 20px; margin-bottom:18px; animation:fadeIn .4s ease; }
     .bmi-label { font-size:10px; color:var(--text-dim); font-weight:700; text-transform:uppercase; letter-spacing:.07em; margin-bottom:8px; }
@@ -115,6 +109,7 @@
     .bakat-opt input { display:none; }
 
     .setuju-box { background:rgba(244,185,66,.06); border:1.5px solid rgba(244,185,66,.2); border-radius:12px; padding:18px 20px; display:flex; align-items:flex-start; gap:14px; cursor:pointer; transition:all .2s; margin-top:20px; }
+    .setuju-box.active { border-color:rgba(244,185,66,.45); background:rgba(244,185,66,.10); box-shadow:0 0 0 3px rgba(244,185,66,.08); }
     .setuju-box input[type="checkbox"] { accent-color:var(--accent); width:18px; height:18px; flex-shrink:0; margin-top:2px; cursor:pointer; }
     .setuju-box-text { font-size:13px; color:var(--text-dim); line-height:1.6; }
     .setuju-box-text strong { color:var(--accent); }
@@ -142,7 +137,9 @@
     @keyframes fadeDown { from{opacity:0;transform:translateY(-14px)} to{opacity:1;transform:translateY(0)} }
     @keyframes slideIn  { from{opacity:0;transform:translateX(16px)}  to{opacity:1;transform:translateX(0)} }
 
-    @media(max-width:768px) { .nilai-grid { grid-template-columns:1fr 1fr; } }
+    @media(max-width:768px) {
+        .nilai-grid { grid-template-columns:1fr 1fr; }
+    }
     @media(max-width:640px) {
         .spk-container { padding:28px 14px 60px; }
         .card-body, .card-header { padding:20px 18px; }
@@ -152,23 +149,26 @@
         .step-label { display:none; }
         .step-circle { width:28px; height:28px; font-size:10px; }
         .step-item-nav::after { top:14px; left:calc(50% + 15px); right:calc(-50% + 15px); }
-        .bakat-options, .toggle-group, .radio-card-group { flex-direction:column; }
+        .bakat-options, .toggle-group { flex-direction:column; }
         .bakat-opt { min-width:100%; }
         .btn-nav { flex-direction:column; }
         .btn-next, .btn-submit { margin-left:0; width:100%; justify-content:center; }
         .btn-prev { width:100%; text-align:center; justify-content:center; }
     }
-    @media(max-width:400px) { .nilai-grid { grid-template-columns:1fr; } }
+    @media(max-width:400px) {
+        .nilai-grid { grid-template-columns:1fr; }
+    }
 </style>
 @endpush
 
 @section('content')
 <div class="spk-wrapper">
-    <div class="bg-grain"></div><div class="bg-glow"></div><div class="bg-glow2"></div>
+    <div class="bg-grain"></div>
+    <div class="bg-glow"></div>
+    <div class="bg-glow2"></div>
     <div class="toast" id="toast"></div>
 
     <div class="spk-container">
-
         <div class="page-header">
             <div class="header-badge">🎯 Sistem Pendukung Keputusan</div>
             <h1 class="page-title">Tes Minat &amp; Bakat<br/>Siswa</h1>
@@ -178,7 +178,11 @@
         @if($errors->any())
         <div class="alert-error">
             <strong>⚠ Harap perbaiki kesalahan berikut:</strong>
-            <ul>@foreach($errors->all() as $e)<li>{{ $e }}</li>@endforeach</ul>
+            <ul>
+                @foreach($errors->all() as $e)
+                    <li>{{ $e }}</li>
+                @endforeach
+            </ul>
         </div>
         @endif
 
@@ -225,7 +229,9 @@
                             <select name="jurusan_pilihan_1" id="jurusan_pilihan_1" required>
                                 <option value="">-- Pilih Jurusan --</option>
                                 @foreach($jurusan as $j)
-                                <option value="{{ $j->id }}" {{ old('jurusan_pilihan_1') == $j->id ? 'selected' : '' }}>{{ $j->nama_jurusan }}</option>
+                                    <option value="{{ $j->id }}" {{ old('jurusan_pilihan_1') == $j->id ? 'selected' : '' }}>
+                                        {{ $j->nama_jurusan }}
+                                    </option>
                                 @endforeach
                             </select>
                             <div class="field-hint">Pilih jurusan pertama yang kamu minati</div>
@@ -237,7 +243,9 @@
                             <select name="jurusan_pilihan_2" id="jurusan_pilihan_2" required>
                                 <option value="">-- Pilih Jurusan --</option>
                                 @foreach($jurusan as $j)
-                                <option value="{{ $j->id }}" {{ old('jurusan_pilihan_2') == $j->id ? 'selected' : '' }}>{{ $j->nama_jurusan }}</option>
+                                    <option value="{{ $j->id }}" {{ old('jurusan_pilihan_2') == $j->id ? 'selected' : '' }}>
+                                        {{ $j->nama_jurusan }}
+                                    </option>
                                 @endforeach
                             </select>
                             <div class="field-hint">Pilih jurusan kedua yang berbeda dari pilihan pertama</div>
@@ -389,27 +397,24 @@
 
                         @if($soal->count() > 0)
                             @foreach($soal as $i => $s)
-                            <div class="bakat-question {{ old('bakat_q'.($i+1)) ? 'answered' : '' }}" id="bq_{{ $i+1 }}">
-                                <div class="bakat-q-num">
-                                    Pertanyaan {{ $i+1 }}
-                                </div>
+                                <div class="bakat-question {{ old('bakat_q'.($i+1)) ? 'answered' : '' }}" id="bq_{{ $i+1 }}">
+                                    <div class="bakat-q-num">Pertanyaan {{ $i+1 }}</div>
+                                    <div class="bakat-q-text">{{ $s->pertanyaan }}</div>
 
-                                <div class="bakat-q-text">
-                                    {{ $s->pertanyaan }}
+                                    <div class="bakat-options">
+                                        @foreach($opsiJawaban as $val => $lbl)
+                                            <label class="bakat-opt {{ old('bakat_q'.($i+1)) == $val ? 'selected' : '' }}" onclick="pilihBakat(this, {{ $i+1 }})">
+                                                <input
+                                                    type="radio"
+                                                    name="bakat_q{{ $i+1 }}"
+                                                    value="{{ $val }}"
+                                                    {{ old('bakat_q'.($i+1)) == $val ? 'checked' : '' }}
+                                                />
+                                                {{ $lbl }}
+                                            </label>
+                                        @endforeach
+                                    </div>
                                 </div>
-
-                                <div class="bakat-options">
-                                    @foreach($opsiJawaban as $val => $lbl)
-                                    <label class="bakat-opt {{ old('bakat_q'.($i+1))==$val ? 'selected' : '' }}" onclick="pilihBakat(this,{{ $i+1 }})">
-                                        <input type="radio"
-                                            name="bakat_q{{ $i+1 }}"
-                                            value="{{ $val }}"
-                                            {{ old('bakat_q'.($i+1))==$val ? 'checked' : '' }} />
-                                        {{ $lbl }}
-                                    </label>
-                                    @endforeach
-                                </div>
-                            </div>
                             @endforeach
                         @else
                             <div class="alert-box alert-warn">
@@ -420,12 +425,8 @@
                 </div>
 
                 <div class="btn-nav">
-                    <button type="button" class="btn-prev" onclick="prevStep(3)">
-                        ← Kembali
-                    </button>
-                    <button type="button" class="btn-next" onclick="nextStep(3)">
-                        Review &amp; Kirim →
-                    </button>
+                    <button type="button" class="btn-prev" onclick="prevStep(3)">← Kembali</button>
+                    <button type="button" class="btn-next" onclick="nextStep(3)">Review &amp; Kirim →</button>
                 </div>
             </div>
 
@@ -447,10 +448,11 @@
                         </div>
 
                         <div class="review-section">
-                            <div class="review-title">Data Fisik</div>
+                            <div class="review-title">📏 Data Fisik</div>
                             <div class="review-grid">
                                 <div class="review-item"><div class="review-item-label">Tinggi Badan</div><div class="review-item-value" id="rev-tinggi">—</div></div>
                                 <div class="review-item"><div class="review-item-label">Berat Badan</div><div class="review-item-value" id="rev-berat">—</div></div>
+                                <div class="review-item"><div class="review-item-label">BMI</div><div class="review-item-value" id="rev-bmi">—</div></div>
                                 <div class="review-item"><div class="review-item-label">Buta Warna</div><div class="review-item-value" id="rev-buta">—</div></div>
                             </div>
                         </div>
@@ -471,8 +473,11 @@
                         </div>
 
                         <label class="setuju-box" id="setujuBox">
-                            <input type="checkbox" name="setuju" id="setujuCheck" value="1" onchange="toggleSetuju(this)" />
-                            <div class="setuju-box-text">Saya menyatakan bahwa data yang saya isi adalah <strong>benar dan akurat</strong>. Saya bersedia menerima rekomendasi jurusan berdasarkan hasil analisis SAW.</div>
+                            <input type="checkbox" name="setuju" id="setujuCheck" value="1" onchange="toggleSetuju(this)" {{ old('setuju') == '1' ? 'checked' : '' }} />
+                            <div class="setuju-box-text">
+                                Saya menyatakan bahwa data yang saya isi adalah <strong>benar dan akurat</strong>.
+                                Saya bersedia menerima rekomendasi jurusan berdasarkan hasil analisis SAW.
+                            </div>
                         </label>
                     </div>
                 </div>
@@ -489,7 +494,7 @@
 @push('scripts')
 <script>
     let currentStep = 0;
-    const pct    = [20,40,60,80,100];
+    const pct = [20, 40, 60, 80, 100];
     const labels = [
         'Langkah 1 dari 5 — Pilih Jurusan',
         'Langkah 2 dari 5 — Data Fisik',
@@ -498,11 +503,15 @@
         'Langkah 5 dari 5 — Review & Kirim'
     ];
 
+    const jumlahSoal = {{ $soal->count() }};
+    const oldSetuju = @json(old('setuju'));
+    const oldButaWarna = @json(old('buta_warna'));
+
     function updateStepper(step) {
         for (let i = 0; i < 5; i++) {
-            const nav = document.getElementById('nav-'+i);
+            const nav = document.getElementById('nav-' + i);
             const circle = nav.querySelector('.step-circle');
-            nav.classList.remove('active','done');
+            nav.classList.remove('active', 'done');
 
             if (i < step) {
                 nav.classList.add('done');
@@ -517,7 +526,7 @@
 
         document.getElementById('progressFill').style.width = pct[step] + '%';
         document.getElementById('progressLabel').textContent = labels[step];
-        document.getElementById('progressPct').textContent   = pct[step] + '%';
+        document.getElementById('progressPct').textContent = pct[step] + '%';
     }
 
     function showStep(step) {
@@ -581,7 +590,6 @@
 
             for (const f of fields) {
                 const el = document.querySelector(`[name="${f}"]`);
-
                 if (!el || el.value.trim() === '') {
                     showToast('⚠ Harap isi semua nilai akademik!');
                     if (el) el.focus();
@@ -589,7 +597,6 @@
                 }
 
                 const value = parseFloat(el.value);
-
                 if (isNaN(value) || value < 0 || value > 100) {
                     showToast('⚠ Nilai harus antara 0 sampai 100!');
                     el.focus();
@@ -599,162 +606,243 @@
         }
 
         if (step === 3) {
-            let firstErr = null;
-
-            for (let i = 1; i <= 10; i++) {
-                const el = document.getElementById('bq_' + i);
-                if (!el) continue;
-
-                if (!document.querySelector(`input[name="bakat_q${i}"]:checked`)) {
-                    el.style.borderColor = '#e05454';
-                    el.style.background = 'rgba(224,84,84,.06)';
-                    if (!firstErr) firstErr = el;
-                }
+            if (jumlahSoal < 1) {
+                showToast('⚠ Soal minat belum tersedia.');
+                return false;
             }
 
-            if (firstErr) {
-                showToast('⚠ Harap jawab semua pertanyaan minat bakat!');
-                firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                return false;
+            for (let i = 1; i <= jumlahSoal; i++) {
+                const checked = document.querySelector(`input[name="bakat_q${i}"]:checked`);
+                if (!checked) {
+                    showToast(`⚠ Harap jawab pertanyaan minat nomor ${i}!`);
+                    const box = document.getElementById(`bq_${i}`);
+                    if (box) box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return false;
+                }
             }
         }
 
         return true;
     }
 
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        toast.textContent = msg;
+        toast.style.display = 'block';
+        clearTimeout(window.__toastTimer);
+        window.__toastTimer = setTimeout(() => {
+            toast.style.display = 'none';
+        }, 2500);
+    }
+
+    function setButaWarna(value) {
+        document.getElementById('buta_warna').value = value;
+
+        const btnYa = document.getElementById('btnButaYa');
+        const btnTidak = document.getElementById('btnButaTidak');
+
+        btnYa.classList.remove('sel-ya');
+        btnTidak.classList.remove('sel-tidak');
+
+        if (value === 'ya') {
+            btnYa.classList.add('sel-ya');
+        } else if (value === 'tidak') {
+            btnTidak.classList.add('sel-tidak');
+        }
+    }
+
+    function hitungBmi() {
+        const tinggi = parseFloat(document.getElementById('tinggi_badan').value);
+        const berat = parseFloat(document.getElementById('berat_badan').value);
+        const card = document.getElementById('bmiCard');
+        const bmiValue = document.getElementById('bmiValue');
+        const bmiCategory = document.getElementById('bmiCategory');
+
+        if (!tinggi || !berat || tinggi <= 0 || berat <= 0) {
+            card.style.display = 'none';
+            return null;
+        }
+
+        const bmi = berat / Math.pow((tinggi / 100), 2);
+        const bmiRounded = bmi.toFixed(1);
+
+        let kategori = '—';
+        if (bmi < 18.5) {
+            kategori = 'Berat Badan Kurang';
+        } else if (bmi < 25) {
+            kategori = 'Normal / Ideal';
+        } else if (bmi < 30) {
+            kategori = 'Berat Badan Lebih';
+        } else {
+            kategori = 'Obesitas';
+        }
+
+        bmiValue.textContent = bmiRounded;
+        bmiCategory.textContent = kategori;
+        card.style.display = 'block';
+
+        return {
+            nilai: bmiRounded,
+            kategori: kategori
+        };
+    }
+
+    function pilihBakat(labelEl, no) {
+        const wrapper = document.getElementById(`bq_${no}`);
+        if (!wrapper) return;
+
+        wrapper.querySelectorAll('.bakat-opt').forEach(opt => opt.classList.remove('selected'));
+        labelEl.classList.add('selected');
+
+        const radio = labelEl.querySelector('input[type="radio"]');
+        if (radio) {
+            radio.checked = true;
+        }
+
+        wrapper.classList.add('answered');
+    }
+
     function updateJurusanPreview() {
         const j1 = document.getElementById('jurusan_pilihan_1');
         const j2 = document.getElementById('jurusan_pilihan_2');
         const preview = document.getElementById('jurusanPreview');
+        const p1 = document.getElementById('previewJ1');
+        const p2 = document.getElementById('previewJ2');
 
-        if (j1.value && j2.value) {
-            preview.style.display = 'block';
-            document.getElementById('previewJ1').textContent = j1.options[j1.selectedIndex].text;
-            document.getElementById('previewJ2').textContent = j2.options[j2.selectedIndex].text;
+        const text1 = j1.options[j1.selectedIndex]?.text || '—';
+        const text2 = j2.options[j2.selectedIndex]?.text || '—';
 
-            if (j1.value === j2.value) {
-                showToast('⚠ Pilih 2 jurusan yang BERBEDA!');
-            }
-        } else {
-            preview.style.display = 'none';
-        }
-    }
+        p1.textContent = j1.value ? text1 : '—';
+        p2.textContent = j2.value ? text2 : '—';
 
-    document.getElementById('jurusan_pilihan_1')?.addEventListener('change', updateJurusanPreview);
-    document.getElementById('jurusan_pilihan_2')?.addEventListener('change', updateJurusanPreview);
-
-    if (document.getElementById('jurusan_pilihan_1')?.value && document.getElementById('jurusan_pilihan_2')?.value) {
-        updateJurusanPreview();
-    }
-
-    function calcBMI() {
-        const t = parseFloat(document.getElementById('tinggi_badan').value);
-        const b = parseFloat(document.getElementById('berat_badan').value);
-
-        if (t > 0 && b > 0) {
-            const bmi = (b / ((t / 100) * (t / 100))).toFixed(1);
-            let cat = '', color = '';
-
-            if (bmi < 18.5) {
-                cat = 'Berat Badan Kurang';
-                color = '#60a5fa';
-            } else if (bmi < 25) {
-                cat = 'Normal / Ideal';
-                color = '#5cb85c';
-            } else if (bmi < 30) {
-                cat = 'Berat Badan Lebih';
-                color = '#f4b942';
-            } else {
-                cat = 'Obesitas';
-                color = '#e05454';
-            }
-
-            document.getElementById('bmiCard').style.display = 'block';
-            document.getElementById('bmiValue').textContent = bmi;
-            document.getElementById('bmiCategory').textContent = cat;
-            document.getElementById('bmiCategory').style.color = color;
-        }
-    }
-
-    document.getElementById('tinggi_badan')?.addEventListener('input', calcBMI);
-    document.getElementById('berat_badan')?.addEventListener('input', calcBMI);
-
-    function setButaWarna(val) {
-        document.getElementById('buta_warna').value = val;
-        document.getElementById('btnButaYa').className = 'toggle-btn' + (val === 'ya' ? ' sel-ya' : '');
-        document.getElementById('btnButaTidak').className = 'toggle-btn' + (val === 'tidak' ? ' sel-tidak' : '');
-    }
-
-    const oldButa = '{{ old("buta_warna") }}';
-    if (oldButa) setButaWarna(oldButa);
-
-    function pilihBakat(el, no) {
-        const block = document.getElementById('bq_' + no);
-        block.querySelectorAll('.bakat-opt').forEach(o => o.classList.remove('selected'));
-        el.classList.add('selected');
-        block.classList.add('answered');
-        block.style.borderColor = '';
-        block.style.background = '';
+        preview.style.display = (j1.value || j2.value) ? 'block' : 'none';
     }
 
     function toggleSetuju(el) {
-        document.getElementById('btnSubmit').disabled = !el.checked;
-        const box = document.getElementById('setujuBox');
-        box.style.borderColor = el.checked ? 'var(--accent)' : '';
-        box.style.background = el.checked ? 'rgba(244,185,66,.12)' : '';
-    }
+        const submitBtn = document.getElementById('btnSubmit');
+        const setujuBox = document.getElementById('setujuBox');
 
-    const opsiLabel = {
-        '1':'Sangat Tidak Setuju',
-        '2':'Tidak Setuju',
-        '3':'Setuju',
-        '4':'Sangat Setuju'
-    };
+        submitBtn.disabled = !el.checked;
+
+        if (el.checked) {
+            setujuBox.classList.add('active');
+        } else {
+            setujuBox.classList.remove('active');
+        }
+    }
 
     function buildReview() {
         const s = (id, val) => {
             const el = document.getElementById(id);
-            if (el) el.textContent = val || '—';
+            if (el) el.textContent = val;
         };
 
-        const j1El = document.getElementById('jurusan_pilihan_1');
-        const j2El = document.getElementById('jurusan_pilihan_2');
+        const getSelectText = (id) => {
+            const el = document.getElementById(id);
+            if (!el || !el.value) return '—';
+            return el.options[el.selectedIndex]?.text || '—';
+        };
 
-        s('rev-jurusan1', j1El?.options[j1El.selectedIndex]?.text || '—');
-        s('rev-jurusan2', j2El?.options[j2El.selectedIndex]?.text || '—');
-        s('rev-tinggi', (document.getElementById('tinggi_badan')?.value || '') + ' cm');
-        s('rev-berat', (document.getElementById('berat_badan')?.value || '') + ' kg');
-        s('rev-buta', document.getElementById('buta_warna')?.value === 'ya' ? '🔴 Ya' : '🟢 Tidak');
+        s('rev-jurusan1', getSelectText('jurusan_pilihan_1'));
+        s('rev-jurusan2', getSelectText('jurusan_pilihan_2'));
 
-        s('rev-mtk',  document.querySelector('[name="nilai_matematika"]')?.value);
-        s('rev-bind', document.querySelector('[name="nilai_bahasa_indonesia"]')?.value);
-        s('rev-bing', document.querySelector('[name="nilai_bahasa_inggris"]')?.value);
-        s('rev-ipa',  document.querySelector('[name="nilai_ipa"]')?.value);
+        const tinggi = document.getElementById('tinggi_badan')?.value || '';
+        const berat = document.getElementById('berat_badan')?.value || '';
+        s('rev-tinggi', tinggi ? `${tinggi} cm` : '—');
+        s('rev-berat', berat ? `${berat} kg` : '—');
+
+        const bmi = hitungBmi();
+        s('rev-bmi', bmi ? `${bmi.nilai} (${bmi.kategori})` : '—');
+
+        const butaWarna = document.getElementById('buta_warna')?.value || '';
+        s('rev-buta', butaWarna === 'ya' ? 'Ya, Buta Warna' : (butaWarna === 'tidak' ? 'Tidak' : '—'));
+
+        s('rev-mtk', document.querySelector('[name="nilai_matematika"]')?.value || '—');
+        s('rev-bind', document.querySelector('[name="nilai_bahasa_indonesia"]')?.value || '—');
+        s('rev-bing', document.querySelector('[name="nilai_bahasa_inggris"]')?.value || '—');
+        s('rev-ipa', document.querySelector('[name="nilai_ipa"]')?.value || '—');
+
+        const jawabanMap = {
+            1: 'Sangat Tidak Setuju',
+            2: 'Tidak Setuju',
+            3: 'Setuju',
+            4: 'Sangat Setuju'
+        };
 
         const grid = document.getElementById('rev-bakat-grid');
-        let html = '';
+        grid.innerHTML = '';
 
-        for (let i = 1; i <= 10; i++) {
+        for (let i = 1; i <= jumlahSoal; i++) {
             const checked = document.querySelector(`input[name="bakat_q${i}"]:checked`);
-            const val = checked ? checked.value : null;
-            html += `<div class="review-item"><div class="review-item-label">Soal ${i}</div><div class="review-item-value">${val ? opsiLabel[val] : '—'}</div></div>`;
+            const value = checked ? jawabanMap[checked.value] : '—';
+
+            const item = document.createElement('div');
+            item.className = 'review-item';
+            item.innerHTML = `
+                <div class="review-item-label">Pertanyaan ${i}</div>
+                <div class="review-item-value">${value}</div>
+            `;
+            grid.appendChild(item);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        updateStepper(0);
+        updateJurusanPreview();
+        hitungBmi();
+
+        document.getElementById('jurusan_pilihan_1')?.addEventListener('change', updateJurusanPreview);
+        document.getElementById('jurusan_pilihan_2')?.addEventListener('change', updateJurusanPreview);
+        document.getElementById('tinggi_badan')?.addEventListener('input', hitungBmi);
+        document.getElementById('berat_badan')?.addEventListener('input', hitungBmi);
+
+        if (oldButaWarna === 'ya' || oldButaWarna === 'tidak') {
+            setButaWarna(oldButaWarna);
         }
 
-        grid.innerHTML = html;
-    }
+        const setujuCheck = document.getElementById('setujuCheck');
+        if (setujuCheck && oldSetuju === '1') {
+            setujuCheck.checked = true;
+            toggleSetuju(setujuCheck);
+        }
 
-    document.getElementById('spkForm')?.addEventListener('submit', function() {
-        const btn = document.getElementById('btnSubmit');
-        btn.disabled = true;
-        btn.textContent = '⏳ Memproses...';
+        @if($errors->any())
+            const oldInputs = {
+                jurusan1: @json(old('jurusan_pilihan_1')),
+                jurusan2: @json(old('jurusan_pilihan_2')),
+                tinggi: @json(old('tinggi_badan')),
+                berat: @json(old('berat_badan')),
+                buta: @json(old('buta_warna')),
+                mtk: @json(old('nilai_matematika')),
+                bind: @json(old('nilai_bahasa_indonesia')),
+                bing: @json(old('nilai_bahasa_inggris')),
+                ipa: @json(old('nilai_ipa'))
+            };
+
+            if (oldInputs.mtk || oldInputs.bind || oldInputs.bing || oldInputs.ipa) {
+                currentStep = 2;
+            }
+            if (oldInputs.tinggi || oldInputs.berat || oldInputs.buta) {
+                currentStep = 1;
+            }
+            if (oldInputs.jurusan1 || oldInputs.jurusan2) {
+                currentStep = Math.max(currentStep, 0);
+            }
+
+            let adaJawabanMinat = false;
+            for (let i = 1; i <= jumlahSoal; i++) {
+                if (@json(old())[`bakat_q${i}`]) {
+                    adaJawabanMinat = true;
+                    break;
+                }
+            }
+
+            if (adaJawabanMinat) {
+                currentStep = 3;
+            }
+
+            showStep(currentStep);
+        @endif
     });
-
-    function showToast(msg) {
-        const t = document.getElementById('toast');
-        t.textContent = msg;
-        t.style.display = 'block';
-        clearTimeout(t._timer);
-        t._timer = setTimeout(() => t.style.display = 'none', 3500);
-    }
 </script>
 @endpush

@@ -304,22 +304,6 @@
                     <div class="info-item-label">IPA</div>
                     <div class="info-item-value">{{ $tesTerakhir->nilai_ipa }}</div>
                 </div>
-                <div class="info-item">
-                    <div class="info-item-label">IPS</div>
-                    <div class="info-item-value">{{ $tesTerakhir->nilai_ips }}</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-item-label">Fisika</div>
-                    <div class="info-item-value">{{ $tesTerakhir->nilai_fisika }}</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-item-label">Biologi</div>
-                    <div class="info-item-value">{{ $tesTerakhir->nilai_biologi }}</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-item-label">PPKN</div>
-                    <div class="info-item-value">{{ $tesTerakhir->nilai_ppkn }}</div>
-                </div>
             </div>
         </div>
 

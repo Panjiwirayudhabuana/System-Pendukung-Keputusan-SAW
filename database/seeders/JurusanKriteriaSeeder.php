@@ -14,108 +14,126 @@ class JurusanKriteriaSeeder extends Seeder
         $kriteria = DB::table('kriteria')->pluck('id', 'kode_kriteria');
         $jurusan  = DB::table('jurusan')->pluck('id', 'nama_jurusan');
 
-        // Optional: biar aman kalau seeder dijalankan ulang
-        DB::table('jurusan_kriteria')->delete();
-
         $bobotPerJurusan = [
 
             'Teknik Alat Berat' => [
-                'C1' => 0.14, 'C2' => 0.05, 'C3' => 0.04, 'C4' => 0.10,
-                'C5' => 0.03, 'C6' => 0.14, 'C7' => 0.03, 'C8' => 0.02,
-                'C9' => 0.20, 'C10' => 0.12, 'C11' => 0.08, 'C12' => 0.05,
+                'C1' => 0.22, // Matematika
+                'C2' => 0.05, // Bahasa Indonesia
+                'C3' => 0.20, // IPA
+                'C4' => 0.03, // Bahasa Inggris
+                'C5' => 0.20, // Fisik
+                'C6' => 0.10, // Buta warna
+                'C7' => 0.20, // Minat bakat
             ],
 
             'Teknik Kendaraan Ringan (Otomotif)' => [
-                'C1' => 0.14, 'C2' => 0.05, 'C3' => 0.04, 'C4' => 0.10,
-                'C5' => 0.03, 'C6' => 0.14, 'C7' => 0.03, 'C8' => 0.02,
-                'C9' => 0.20, 'C10' => 0.12, 'C11' => 0.08, 'C12' => 0.05,
+                'C1' => 0.20,
+                'C2' => 0.05,
+                'C3' => 0.18,
+                'C4' => 0.03,
+                'C5' => 0.20,
+                'C6' => 0.12,
+                'C7' => 0.22,
             ],
 
             'Teknik Sepeda Motor' => [
-                'C1' => 0.14, 'C2' => 0.05, 'C3' => 0.04, 'C4' => 0.10,
-                'C5' => 0.03, 'C6' => 0.14, 'C7' => 0.03, 'C8' => 0.02,
-                'C9' => 0.20, 'C10' => 0.12, 'C11' => 0.08, 'C12' => 0.05,
+                'C1' => 0.18,
+                'C2' => 0.05,
+                'C3' => 0.17,
+                'C4' => 0.03,
+                'C5' => 0.20,
+                'C6' => 0.12,
+                'C7' => 0.25,
             ],
 
             'Teknik Pemesinan' => [
-                'C1' => 0.14, 'C2' => 0.05, 'C3' => 0.04, 'C4' => 0.10,
-                'C5' => 0.03, 'C6' => 0.14, 'C7' => 0.03, 'C8' => 0.02,
-                'C9' => 0.20, 'C10' => 0.12, 'C11' => 0.08, 'C12' => 0.05,
+                'C1' => 0.24,
+                'C2' => 0.04,
+                'C3' => 0.20,
+                'C4' => 0.03,
+                'C5' => 0.20,
+                'C6' => 0.09,
+                'C7' => 0.20,
             ],
 
             'Teknik Mekatronika' => [
-                'C1' => 0.15, 'C2' => 0.04, 'C3' => 0.05, 'C4' => 0.10,
-                'C5' => 0.02, 'C6' => 0.15, 'C7' => 0.02, 'C8' => 0.02,
-                'C9' => 0.20, 'C10' => 0.08, 'C11' => 0.05, 'C12' => 0.12,
+                'C1' => 0.22,
+                'C2' => 0.04,
+                'C3' => 0.20,
+                'C4' => 0.07,
+                'C5' => 0.15,
+                'C6' => 0.12,
+                'C7' => 0.20,
             ],
 
             'Teknik Konstruksi & Perumahan' => [
-                'C1' => 0.13, 'C2' => 0.06, 'C3' => 0.04, 'C4' => 0.08,
-                'C5' => 0.04, 'C6' => 0.12, 'C7' => 0.03, 'C8' => 0.03,
-                'C9' => 0.18, 'C10' => 0.14, 'C11' => 0.08, 'C12' => 0.07,
+                'C1' => 0.20,
+                'C2' => 0.07,
+                'C3' => 0.12,
+                'C4' => 0.04,
+                'C5' => 0.22,
+                'C6' => 0.10,
+                'C7' => 0.25,
             ],
 
             'Desain Pemodelan & Informasi Bangunan (DPIB)' => [
-                'C1' => 0.14, 'C2' => 0.07, 'C3' => 0.05, 'C4' => 0.08,
-                'C5' => 0.05, 'C6' => 0.10, 'C7' => 0.02, 'C8' => 0.03,
-                'C9' => 0.22, 'C10' => 0.08, 'C11' => 0.04, 'C12' => 0.12,
+                'C1' => 0.19,
+                'C2' => 0.09,
+                'C3' => 0.11,
+                'C4' => 0.05,
+                'C5' => 0.18,
+                'C6' => 0.08,
+                'C7' => 0.30,
             ],
 
             'Teknik Instalasi Listrik' => [
-                'C1' => 0.14, 'C2' => 0.04, 'C3' => 0.05, 'C4' => 0.10,
-                'C5' => 0.02, 'C6' => 0.14, 'C7' => 0.02, 'C8' => 0.02,
-                'C9' => 0.18, 'C10' => 0.08, 'C11' => 0.04, 'C12' => 0.17,
+                'C1' => 0.22,
+                'C2' => 0.04,
+                'C3' => 0.18,
+                'C4' => 0.06,
+                'C5' => 0.14,
+                'C6' => 0.16,
+                'C7' => 0.20,
             ],
 
             'Teknik Pembangkit Tenaga Listrik' => [
-                'C1' => 0.14, 'C2' => 0.04, 'C3' => 0.05, 'C4' => 0.10,
-                'C5' => 0.02, 'C6' => 0.14, 'C7' => 0.02, 'C8' => 0.02,
-                'C9' => 0.18, 'C10' => 0.08, 'C11' => 0.04, 'C12' => 0.17,
+                'C1' => 0.22,
+                'C2' => 0.04,
+                'C3' => 0.19,
+                'C4' => 0.06,
+                'C5' => 0.14,
+                'C6' => 0.16,
+                'C7' => 0.19,
             ],
 
             'Teknik Audio Video' => [
-                'C1' => 0.12, 'C2' => 0.05, 'C3' => 0.08, 'C4' => 0.08,
-                'C5' => 0.03, 'C6' => 0.10, 'C7' => 0.02, 'C8' => 0.02,
-                'C9' => 0.24, 'C10' => 0.05, 'C11' => 0.03, 'C12' => 0.18,
+                'C1' => 0.16,
+                'C2' => 0.05,
+                'C3' => 0.14,
+                'C4' => 0.10,
+                'C5' => 0.10,
+                'C6' => 0.20,
+                'C7' => 0.25,
             ],
 
             'Teknik Komputer & Jaringan (TKJ)' => [
-                'C1' => 0.13, 'C2' => 0.06, 'C3' => 0.09, 'C4' => 0.07,
-                'C5' => 0.03, 'C6' => 0.08, 'C7' => 0.02, 'C8' => 0.02,
-                'C9' => 0.28, 'C10' => 0.03, 'C11' => 0.02, 'C12' => 0.17,
+                'C1' => 0.20,
+                'C2' => 0.07,
+                'C3' => 0.10,
+                'C4' => 0.13,
+                'C5' => 0.05,
+                'C6' => 0.10,
+                'C7' => 0.35,
             ],
 
             'Desain Komunikasi Visual (DKV)' => [
-                'C1' => 0.06, 'C2' => 0.10, 'C3' => 0.08, 'C4' => 0.03,
-                'C5' => 0.05, 'C6' => 0.02, 'C7' => 0.02, 'C8' => 0.04,
-                'C9' => 0.38, 'C10' => 0.02, 'C11' => 0.02, 'C12' => 0.18,
-            ],
-        ];
-
-        $aturanKhusus = [
-            'Teknik Instalasi Listrik' => [
-                'C12' => [
-                    'wajib_lolos' => true,
-                    'keterangan' => 'Tidak buta warna',
-                ],
-            ],
-            'Teknik Pembangkit Tenaga Listrik' => [
-                'C12' => [
-                    'wajib_lolos' => true,
-                    'keterangan' => 'Tidak buta warna',
-                ],
-            ],
-            'Teknik Audio Video' => [
-                'C12' => [
-                    'wajib_lolos' => true,
-                    'keterangan' => 'Tidak buta warna',
-                ],
-            ],
-            'Desain Komunikasi Visual (DKV)' => [
-                'C12' => [
-                    'wajib_lolos' => true,
-                    'keterangan' => 'Tidak buta warna',
-                ],
+                'C1' => 0.07,
+                'C2' => 0.16,
+                'C3' => 0.05,
+                'C4' => 0.12,
+                'C5' => 0.05,
+                'C6' => 0.10,
+                'C7' => 0.45,
             ],
         ];
 
@@ -131,22 +149,20 @@ class JurusanKriteriaSeeder extends Seeder
                     continue;
                 }
 
-                $aturan = $aturanKhusus[$namaJurusan][$kodeKriteria] ?? [];
-
                 $insertData[] = [
-                    'jurusan_id'   => $jurusan[$namaJurusan],
-                    'kriteria_id'  => $kriteria[$kodeKriteria],
-                    'bobot'        => $bobot,
-                    'nilai_min'    => $aturan['nilai_min'] ?? null,
-                    'nilai_max'    => $aturan['nilai_max'] ?? null,
-                    'wajib_lolos'  => $aturan['wajib_lolos'] ?? false,
-                    'keterangan'   => $aturan['keterangan'] ?? null,
-                    'created_at'   => $now,
-                    'updated_at'   => $now,
+                    'jurusan_id'  => $jurusan[$namaJurusan],
+                    'kriteria_id' => $kriteria[$kodeKriteria],
+                    'bobot'       => $bobot,
+                    'created_at'  => $now,
+                    'updated_at'  => $now,
                 ];
             }
         }
 
-        DB::table('jurusan_kriteria')->insert($insertData);
+        DB::table('jurusan_kriteria')->upsert(
+            $insertData,
+            ['jurusan_id', 'kriteria_id'],
+            ['bobot', 'updated_at']
+        );
     }
 }
